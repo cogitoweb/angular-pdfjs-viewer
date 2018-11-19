@@ -70,7 +70,7 @@
     
     module.directive('pdfjsViewer', ['$interval', function ($interval) {
         return {
-            templateUrl: file.folder + '../../pdf.js-viewer/viewer.html',
+            templateUrl: file.folder + 'node_modules/pdf.js-viewer/viewer.html',
             restrict: 'E',
             scope: {
                 onInit: '&',
