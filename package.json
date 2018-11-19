@@ -13,7 +13,6 @@
     "angular": "^1.5.8",
     "pdf.js-viewer": "~1.6.211"
   },
-  "license": "MIT",
   "main": "dist/angular-pdfjs-viewer.js",
   "devDependencies": {
     "grunt": "^0.4.5",
