@@ -78,7 +78,7 @@
                 scale: '=?',
                 src: '@?',
                 data: '=?',
-                showPdf: '=',
+                pdf: '=',
             },
             link: function ($scope, $element, $attrs) {
                 $element.children().wrap('<div class="pdfjs" style="width: 100%; height: 100%;"></div>');
@@ -111,7 +111,7 @@
                 
                 // close pdf viewer
                 $scope.close = function() {
-                    $scope.showPdf = false;
+                    $scope.pdf.pdfDataShow = false;
                 };
 
                 var poller = $interval(function () {
