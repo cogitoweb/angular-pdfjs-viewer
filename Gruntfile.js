@@ -18,7 +18,7 @@ module.exports = function (grunt) {
             {
               match: /templateUrl:.*/,
               replacement: function () {
-              	var content = grunt.file.read('vendor/pdf.js-viewer/viewer.html');
+              	var content = grunt.file.read('src/viewer.html');
               	return 'template: ' + escapeContent(content, '\'') + ',';
               }
             },
