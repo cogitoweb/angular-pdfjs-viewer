@@ -70,14 +70,15 @@
     
     module.directive('pdfjsViewer', ['$interval', function ($interval) {
         return {
-            templateUrl: file.folder + 'node_modules/pdf.js-viewer/viewer.html',
+            templateUrl: file.folder + 'viewer.html',
             restrict: 'E',
             scope: {
                 onInit: '&',
                 onPageLoad: '&',
                 scale: '=?',
                 src: '@?',
-                data: '=?'
+                data: '=?',
+                showPdf: '=',
             },
             link: function ($scope, $element, $attrs) {
                 $element.children().wrap('<div class="pdfjs" style="width: 100%; height: 100%;"></div>');
@@ -108,6 +109,11 @@
                     if ($scope.onInit) $scope.onInit();
                 }
                 
+                // close pdf viewer
+                $scope.close = function() {
+                    $scope.showPdf = false;
+                };
+
                 var poller = $interval(function () {
                     if (!window.PDFViewerApplication) {
                         return;
