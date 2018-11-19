@@ -231,6 +231,7 @@
 '                    <span data-l10n-id="zoom_in_label">Zoom In</span>\n' +
 '                   </button>\n' +
 '                </div>\n' +
+'                <button id="closePdf" class="toolbarButton" title="Close pdf viewer" tabindex="24" ng-click="close();"></button>\n' +
 '                <span id="scaleSelectContainer" class="dropdownToolbarButton">\n' +
 '                  <select id="scaleSelect" title="Zoom" tabindex="23" data-l10n-id="zoom">\n' +
 '                    <option id="pageAutoOption" title="" value="auto" selected="selected" data-l10n-id="page_scale_auto">Automatic Zoom</option>\n' +
@@ -380,7 +381,8 @@
                 onPageLoad: '&',
                 scale: '=?',
                 src: '@?',
-                data: '=?'
+                data: '=?',
+                pdf: '=',
             },
             link: function ($scope, $element, $attrs) {
                 $element.children().wrap('<div class="pdfjs" style="width: 100%; height: 100%;"></div>');
@@ -411,6 +413,11 @@
                     if ($scope.onInit) $scope.onInit();
                 }
                 
+                // close pdf viewer
+                $scope.close = function() {
+                    $scope.pdf.pdfDataShow = false;
+                };
+
                 var poller = $interval(function () {
                     if (!window.PDFViewerApplication) {
                         return;
@@ -500,4 +507,6 @@
             }
         };
     }]);
+
+    // 
 }();
